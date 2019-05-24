@@ -1,0 +1,24 @@
+<div class="nested-fields">
+  <%= f.label :number do %>
+    商品名:<%= f.text_field :number %>
+  <% end %>
+  <table>
+    <thead>
+      <th>曲順</th>
+      <th>曲名</th>
+      <th>削除</th>
+    </thead>
+    <tbody>
+      <%= f.fields_for :songs do |s| %>
+        <%= render 'song_fields', :f => s %>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <div class="links">
+    <%# link_to_add_associationは標準で、親要素の上にformを追加するようになっている %>
+    <%# ここではdivの上 %>
+    <%= link_to_add_association 'add song', f, :songs %>
+  </div>
+</div>
+

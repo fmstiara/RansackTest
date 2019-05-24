@@ -1,0 +1,16 @@
+<%= search_form_for @q do |f| %>
+  <%# Search if the name field contains...%>
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.submit %>
+<% end %>
+
+<table>
+<% @users.each do |u|%>
+<tr>
+  <td><%= u.name %></td>
+  <td><%= u.age %></td>
+</tr>
+<% end %>
+</table>
